@@ -1,0 +1,203 @@
+@font-face {
+  font-family: "Eczar";
+  src: url("./fonts/eczar-semibold.ttf");
+}
+@font-face {
+  font-family: "Amsterdam";
+  src: url("./fonts/amsterdam-three-slant.ttf");
+}
+:root {
+  --font_main: "Libre Franklin", sans-serif;
+  --font_logo: "Amsterdam", sans-serif;
+  --w-line-menu-btn: 4rem;
+  --h-line-menu-btn: 4rem;
+  --w-line-menu-btn_: 4rem;
+  --h-line-menu-btn_: 0.25rem;
+  --separation-menu-btn_after: 1rem;
+  --separation-menu-btn_before: -1rem;
+  --colorPrimary: #1597e5;
+  --colorSecundary: #69dadb;
+  --colorGray: #423c3c;
+  --gradient: radial-gradient(
+    circle at 79.88% -14.09%,
+    #d0fdec 0,
+    #bcf6e7 12.5%,
+    #a5eee2 25%,
+    #8ae4de 37.5%,
+    #69dadb 50%,
+    #3ecfda 62.5%,
+    #00c5da 75%,
+    #00bcdc 87.5%,
+    #00b3df 100%
+  );
+  --red: rgb(128, 12, 12);
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+body {
+  font-family: var(--font_main);
+}
+#root {
+  /* display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+  min-height: 100vh; */
+}
+a {
+  text-decoration: none;
+}
+button {
+  background-color: transparent;
+  border: none;
+}
+input {
+  outline: none;
+}
+img {
+  width: 100%;
+}
+
+/**** Header Component ****/
+
+.menu-btn {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: var(--w-line-menu-btn);
+  height: var(--h-line-menu-btn);
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+.menu-btn_ {
+  width: calc(var(--w-line-menu-btn_) * 0.90);
+  height: var(--h-line-menu-btn_);
+  border-radius: 0.5rem;
+  background-color: white;
+  transition: all 0.5s ease-in-out;
+}
+.menu-btn_::before,
+.menu-btn_::after {
+  content: "";
+  position: absolute;
+  width: var(--w-line-menu-btn_);
+  height: var(--h-line-menu-btn_);
+  background-color: white;
+  border-radius: 0.5rem;
+  transition: all 0.5s ease-in-out;
+}
+.menu-btn_::after {
+  width: calc(var(--w-line-menu-btn_) * 0.8);
+  transform: translateY(var(--separation-menu-btn_after));
+}
+.menu-btn_::before {
+  transform: translateY(var(--separation-menu-btn_before));
+}
+
+/**** HomeComponents ****/
+.content-slide-home {
+  width: 100%;
+  margin-top: 7rem;
+  max-height: calc(75vh - 7rem);
+  background: black;
+}
+.slide {
+  min-height: calc(75vh - 7rem);
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.slide-urbano {
+  background-image: url("./images/3.jpg");
+}
+.slide-deportivo {
+  background-image: url("./images/5.jpg");
+}
+@media (min-width: 768px) {
+  .slide-urbano {
+    background-image: url("./images/2.jpg");
+  }
+  .slide-deportivo {
+    background-image: url("./images/4.jpg");
+  }
+}
+
+.menu {
+  position: fixed;
+  width: 100%;
+  height: 0%;
+  left: 0%;
+  background-color: rgba(0, 0, 0, 0.92);
+  transition: all 0.55s ease-in-out;
+}
+.show-menu {
+  top: 7rem;
+  height: 100%;
+  opacity: 1;
+}
+.hidden-menu {
+  top: -100%;
+  visibility: hidden;
+}
+
+@media (min-width: 768px) {
+  .menu {
+    width: 100%;
+  }
+}
+
+.text-gradient {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.t-w {
+  color: #fff;
+}
+.banner-logo {
+  min-height: 50vh;
+  background-image: url('./images/logo_aku.png');
+  background-position: top right;
+  background-size: cover;
+}
+.back-logo {
+  background-color: rgba(0, 0, 0, 0.78);
+  height: 100%;
+}
+
+.btn-submit {
+  text-align: right;
+}
+.btn-submit .btn {
+  width: 100%;
+  padding: 1.25rem 1.5rem;
+  border: .1rem solid var(--colorSecundary);
+  background: var(--gradient);
+  font-size: 1.4rem;
+  color: #000 !important;
+  -webkit-text-fill-color: #000;
+  -webkit-background-clip: none;
+}
+.btn-submit .btn:hover {
+  color: #000;
+  cursor: pointer;
+  background: var(--gradient);
+  -webkit-background-clip: none;
+  -webkit-text-fill-color: #000;
+}
+@media (min-width: 768px) {
+  .btn-submit .btn {
+    width: auto;
+    font-size: 1.6rem;
+  }
+}
